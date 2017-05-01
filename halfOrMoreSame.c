@@ -39,7 +39,8 @@ struct numCards mergeAndCount(Card *cards, int size, struct numCards count1, str
     if (count1.numCards >= size / 2) return count1;
     if (count2.numCards >= size / 2) return count2;
     if (count1.card == count2.card) {
-        return makeCount(count1.card, count1.numCards + count2.numCards);
+        if (count1.numCards >= size / 2) return count1;
+        return makeCount(NULL, count);
     }
     struct numCards *first = &count1;
     struct numCards *second = &count2;
